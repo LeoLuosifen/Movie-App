@@ -4,8 +4,8 @@
 node_modules/
 
 # IDE files
-.idea
-.vscode
+.idea/
+.vscode/
 
 # Expo
 .expo/
