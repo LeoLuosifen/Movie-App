@@ -4,7 +4,7 @@
 import {useEffect, useState} from "react";
 
 const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
-    const [data, setDate] = useState<T | null>(null);
+    const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<Error | null>(null);
 
@@ -14,7 +14,7 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
             setError(null);
 
             const result = await fetchFunction();
-            setDate(result);
+            setData(result);
         } catch (err) {
             // @ts-ignore
             setError(err instanceof Error ? err : new Error('An error occurred'));
@@ -24,7 +24,7 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
     }
 
     const reset = () => {
-        setDate(null);
+        setData(null);
         setLoading(false);
         setError(null);
     }
